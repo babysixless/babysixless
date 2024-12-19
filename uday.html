@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>babysixless</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo"> every problem has a solution </div>
+        <nav>
+            <a href="javascript:void(0);" onclick="showSection('about')">About</a>
+            <a href="javascript:void(0);" onclick="showSection('projects')">Projects</a>
+            <a href="javascript:void(0);" onclick="showSection('socials')">Socials</a>
+            <a href="javascript:void(0);" onclick="showSection('contact')">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Left Content -->
+        <div class="hero-content">
+            <h1>Welcome to My Website</h1>
+            <p>A place where coding meets creativity. Explore my journey in coding and beyond.</p>
+            <button onclick="showSection('about')">Explore Now</button>
+        </div>
+
+        <!-- Right Video -->
+        <div class="hero-video">
+            <video autoplay muted loop>
+                <source src="1st.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2>About Me</h2>
+        <p>I have a strong interest in coding and enjoy working with different programming languages to create amazing projects.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <h2>My Projects</h2>
+        <p>Here are some of my featured projects:</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>🚀 Face Recognition Attendance System</li>
+            <li>💻 Responsive Portfolio Website</li>
+            <li>🎮 Game Development Projects</li>
+        </ul>
+    </section>
+
+    <!-- Socials Section -->
+    <section class="section" id="socials">
+        <h2>Social Media</h2>
+        <p>Follow me on my social media handles:</p>
+        <p>
+            <a href="https://instagram.com" style="color: #FF4655;">Instagram</a> |
+            <a href="https://youtube.com" style="color: #FF4655;">YouTube</a>
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2>Send a Message</h2>
+        <div class="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <input type="email" id="email" placeholder="Your Email" required />
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            <button onclick="submitMessage()">Send Message</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 Udayyyyy. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const currentActive = document.querySelector('.section.active');
+            const newSection = document.getElementById(sectionId);
+
+            if (currentActive) {
+                currentActive.classList.add('fade-out');
+                currentActive.addEventListener('animationend', () => {
+                    currentActive.classList.remove('active', 'fade-out');
+                    newSection.classList.add('active', 'fade-in');
+                }, { once: true });
+            } else {
+                newSection.classList.add('active', 'fade-in');
+            }
+
+            document.getElementById('hero').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
